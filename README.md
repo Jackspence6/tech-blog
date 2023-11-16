@@ -34,7 +34,7 @@ npm install
 Set up your environment variables. Create a `.env` file in the root directory with the following content:
 
 ```
-DB_NAME="tech_blog_db"
+DB_NAME="techBlog_db"
 DB_USER="[your_mysql_username]"
 DB_PW="[your_mysql_password]"
 ```
