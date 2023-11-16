@@ -1,11 +1,11 @@
 // Imports & supporting NPM modules
 const router = require("express").Router();
-const postRoutes = require("./postRoutes");
+const blogRoutes = require("./blogRoutes");
 const commentRoutes = require("./commentRoutes");
 const userRoutes = require("./userRoutes");
 
 // Middleware
-router.use("./posts", postRoutes);
+router.use("./blogs", blogRoutes);
 router.use("/comments", commentRoutes);
 router.use("/users", userRoutes);
 
