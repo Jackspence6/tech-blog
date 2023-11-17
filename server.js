@@ -2,6 +2,7 @@
 const express = require("express");
 const session = require("express-session");
 require("dotenv").config();
+const path = require("path");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const exphbs = require("express-handlebars");
@@ -29,6 +30,7 @@ const hbs = exphbs.create({});
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Informing Express on which template engine to use
 app.engine("handlebars", hbs.engine);
