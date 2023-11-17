@@ -3,7 +3,7 @@
 		"id": 1,
 		"title": "The Future of AI in Software Development",
 		"content": "Exploring how AI is revolutionizing software development practices...",
-		"userId": 1,
+		"user_id": 1,
 		"createdAt": "2023-01-10T00:00:00.000Z",
 		"updatedAt": "2023-01-10T00:00:00.000Z"
 	},
@@ -11,7 +11,7 @@
 		"id": 2,
 		"title": "Understanding MVC Architecture",
 		"content": "MVC Architecture simplifies application development by separating the logic...",
-		"userId": 2,
+		"user_id": 2,
 		"createdAt": "2023-01-11T00:00:00.000Z",
 		"updatedAt": "2023-01-11T00:00:00.000Z"
 	}

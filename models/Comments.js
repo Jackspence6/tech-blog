@@ -17,12 +17,12 @@ Comments.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		post_id: {
+		blog_id: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			unique: true,
 			references: {
-				model: "posts",
+				model: "blogs",
 				key: "id",
 			},
 		},
