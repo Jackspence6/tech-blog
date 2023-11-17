@@ -4,6 +4,8 @@ const session = require("express-session");
 require("dotenv").config();
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const exphbs = require("express-handlebars");
+const routes = require("./controllers");
 
 // Initializing the express server
 const app = express();
@@ -20,10 +22,17 @@ const sess = {
 	}),
 };
 
+// Setting up Handlebars engine
+const hbs = exphbs.create({});
+
 // Middleware
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Informing Express on which template engine to use
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 // Turning Routes on
 app.use(routes);
