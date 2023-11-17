@@ -1,0 +1,18 @@
+[
+	{
+		"id": 1,
+		"content": "Great insights on AI!",
+		"postId": 1,
+		"userId": 2,
+		"createdAt": "2023-01-15T00:00:00.000Z",
+		"updatedAt": "2023-01-15T00:00:00.000Z"
+	},
+	{
+		"id": 2,
+		"content": "Very informative article on MVC.",
+		"postId": 2,
+		"userId": 1,
+		"createdAt": "2023-01-16T00:00:00.000Z",
+		"updatedAt": "2023-01-16T00:00:00.000Z"
+	}
+]
