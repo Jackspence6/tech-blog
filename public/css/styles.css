@@ -1,0 +1,43 @@
+h1 {
+	color: white;
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+}
+
+body {
+	background-color: black;
+}
+.navText {
+	font-family: "Courier New", Courier, monospace;
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.card-title {
+	text-align: center;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+}
+
+.blog-content {
+	text-align: center;
+	width: 100rem;
+	border-radius: 15px;
+}
+
+.row {
+	display: flex;
+}
+
+.center-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#heading {
+	border-top: 0.3rem solid white;
+}
