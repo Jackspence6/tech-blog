@@ -11,8 +11,14 @@
                         </p>
                     </div>
                     <div class="card-action">
-                        <p>Posted By: {{blog.user.username}}</p>
-                        <p>Date Posted: {{format_date blog.date_created}}</p>
+                        <div class="content-details">
+                            <p>Posted By:</p>
+                            <span>{{blog.user.username}}</span>
+                        </div>
+                        <div class="content-details">
+                            <p>Date Posted:</p>
+                            <span>{{format_date blog.date_created}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
