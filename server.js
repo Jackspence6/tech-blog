@@ -24,7 +24,7 @@ const sess = {
 	}),
 };
 
-// Setting up Handlebars engine
+// Setting up Handlebars engine with helpers 
 const hbs = exphbs.create({ helpers });
 
 // Middleware
