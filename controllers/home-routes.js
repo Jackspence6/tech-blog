@@ -26,7 +26,10 @@ router.get("/", async (req, res) => {
 		const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
 		// Passing serialized data into the Handlebars template
-		res.render("homepage", { blogs });
+		res.render("homepage", {
+			blogs,
+			logged_in: req.session.logged_in,
+		});
 	} catch (err) {
 		// Catching and handling any errors
 		res
