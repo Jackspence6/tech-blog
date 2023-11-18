@@ -1,0 +1,22 @@
+{{#each blogs as |blog| }}
+<div class="row">
+    <div class="col s12">
+        <div class="col s12 m7">
+            <div class="card horizontal blog-content">
+                <div class="card-stacked">
+                    <span class="card-title">{{blog.title}}</span>
+                    <div class="card-content">
+                        <p>
+                            {{blog.content}}
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <p>Posted By: {{blog.user.username}}</p>
+                        <p>Date Posted: {{blog.date_created}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
