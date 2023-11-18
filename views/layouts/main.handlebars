@@ -15,7 +15,11 @@
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a class="navText" href="/">Home</a></li>
                 <li><a class="navText" href="/dashboards">Dashboard</a></li>
+                {{#if logged_in}}
                 <li><a class="navText" href="/login">Login</a></li>
+                {{#else}}
+                <li><a class="navText" href="/logout">Logout</a></li>
+                {{/if}}
             </ul>
         </div>
     </nav>
