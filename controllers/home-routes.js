@@ -26,9 +26,42 @@ router.get("/", async (req, res) => {
 		});
 	} catch (err) {
 		// Catching and handling any errors
-		res
-			.status(500)
-			.render("errorPage", { message: "❌Error fetching blog posts!" });
+		res.status(500).json({ message: "❌Error fetching blog posts!" });
+	}
+});
+
+// Route to get individual blog by Id and associated info
+router.get("/blogs/:id", async (req, res) => {
+	try {
+		const blogData = await Blogs.findByPk(req.params.id, {
+			include: [
+				{
+					model: Comments,
+					attributes: ["id", "content", "date_created", "user_id"],
+					include: {
+						model: Users,
+						attributes: ["username"],
+					},
+				},
+				{
+					model: Users,
+					attributes: ["username"],
+				},
+			],
+			attributes: ["title", "content", "date_created"],
+		});
+
+		// Serializing data so the template can read it
+		const blogs = blogData.get({ plain: true });
+
+		// Passing serialized data into the Handlebars template
+		res.render("blogs", {
+			blogs,
+			logged_in: req.session.logged_in,
+		});
+	} catch (err) {
+		// Catching and handling any errors
+		res.status(500).json({ message: "❌Error fetching blog post!" });
 	}
 });
 
