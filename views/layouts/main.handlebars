@@ -16,7 +16,7 @@
                 <li><a class="navText" href="/">Home</a></li>
                 {{#if logged_in}}
                 <li><a class="navText" href="/dashboards">Dashboard</a></li>
-                <li><a class="navText" href="/logout">Logout</a></li>
+                <li><a class="navText" id="logout" href="/logout">Logout</a></li>
                 {{else}}
                 <li><a class="navText" href="/login">Dashboard</a></li>
                 <li><a class="navText" href="/login">Login</a></li>
@@ -30,6 +30,10 @@
     <div class="white center-div">
         {{{body}}}
     </div>
+    <!-- Rendering script for logged in users only -->
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>
