@@ -1,7 +1,7 @@
 // Imports & supporting NPM modules
 const router = require("express").Router();
 const { Blogs, Comments, Users } = require("../models");
-const { route } = require("./home-routes");
+require("./home-routes");
 
 // Route to get all Blogs along with their associated Comments and Users
 router.get("/", async (req, res) => {
