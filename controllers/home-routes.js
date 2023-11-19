@@ -58,6 +58,7 @@ router.get("/blogs/:id", async (req, res) => {
 		res.render("blogs", {
 			blogs,
 			logged_in: req.session.logged_in,
+			on_blogPage: true,
 		});
 	} catch (err) {
 		// Catching and handling any errors
