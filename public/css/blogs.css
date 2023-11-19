@@ -1,0 +1,87 @@
+h1 {
+	color: white;
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+}
+
+h2 {
+	font-family: monospace;
+	font-size: 2.5rem;
+	text-align: center;
+	font-style: italic;
+	text-decoration: wavy underline;
+	font-weight: bold;
+}
+
+body {
+	background-color: black;
+}
+.navText {
+	font-family: "Courier New", Courier, monospace;
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.card-title {
+	text-align: center;
+	background-color: black;
+	color: white;
+	border-radius: 5px;
+}
+
+.blog-content {
+	text-align: center;
+	width: 100rem;
+	border-radius: 15px;
+	height: 50vh;
+}
+
+.row {
+	display: flex;
+	flex-direction: column;
+}
+
+.center-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#heading {
+	border-top: 0.3rem solid white;
+}
+
+.card-title {
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+	padding: 0.5rem;
+	text-decoration: 1px white solid underline;
+}
+
+.card-content {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	font-size: 20px;
+}
+
+.card-action {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid;
+	border-top: 1px solid;
+}
+
+.card-action p {
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.content-details {
+	display: flex;
+	justify-content: center;
+}

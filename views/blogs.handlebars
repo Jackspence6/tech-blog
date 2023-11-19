@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col s12">
+        <div class="col s12 m7">
+            <div class="card horizontal blog-content">
+                <div class="card-stacked">
+                    <span class="card-title">{{blogs.title}}</span>
+                    <div class="card-content">
+                        <p>
+                            {{blogs.content}}
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <div class="content-details">
+                            <p>Posted By:</p>
+                            <span>{{blogs.user.username}}</span>
+                        </div>
+                        <div class="content-details">
+                            <p>Date Posted:</p>
+                            <span>{{format_date blogs.date_created}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Comments:</h2>
+    </div>
+    <div></div>
+</div>
