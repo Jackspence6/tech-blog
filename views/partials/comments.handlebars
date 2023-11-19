@@ -1,0 +1,25 @@
+{{#each comments as |comment| }}
+<div class="col s12">
+    <div class="col s12 m7">
+        <div class="card horizontal comment-content">
+            <div class="card-stacked">
+                <div class="card-content">
+                    <p>
+                        {{comment.content}}
+                    </p>
+                </div>
+                <div class="card-action">
+                    <div class="content-details">
+                        <p>Posted By:</p>
+                        <span>{{comment.user.username}}</span>
+                    </div>
+                    <div class="content-details">
+                        <p>Date Posted:</p>
+                        <span>{{format_date comment.date_created}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}

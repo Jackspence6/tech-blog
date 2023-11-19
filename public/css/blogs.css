@@ -34,7 +34,7 @@ body {
 	text-align: center;
 	width: 100rem;
 	border-radius: 15px;
-	height: 50vh;
+	height: fit-content;
 }
 
 .row {
@@ -84,4 +84,20 @@ body {
 .content-details {
 	display: flex;
 	justify-content: center;
+}
+
+#comments {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border: 3px solid black;
+	border-radius: 10px;
+}
+
+.comment-content {
+	text-align: center;
+	width: 100rem;
+	border-radius: 15px;
+	height: fit-content;
+	font-style: italic;
 }
