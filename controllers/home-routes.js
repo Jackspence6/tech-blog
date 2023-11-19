@@ -3,24 +3,17 @@ const router = require("express").Router();
 const { Blogs, Comments, Users } = require("../models");
 require("./home-routes");
 
-// Route to get all Blogs along with their associated Comments and Users
+// Route to get all Blogs along with their associated info
 router.get("/", async (req, res) => {
 	try {
 		const blogData = await Blogs.findAll({
 			include: [
 				{
-					model: Comments,
-					attributes: ["id", "content", "date_created", "user_id"],
-					include: {
-						model: Users,
-						attributes: ["username"],
-					},
-				},
-				{
 					model: Users,
 					attributes: ["username"],
 				},
 			],
+			attributes: ["id", "title", "content", "date_created", "user_id"],
 		});
 
 		// Serializing data so the template can read it
