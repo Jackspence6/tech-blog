@@ -6,7 +6,7 @@ const userRoutes = require("./userRoutes");
 const dashboardRoutes = require("./dashboardRoutes");
 
 // Middleware
-router.use("./blogs", blogRoutes);
+router.use("/blogs", blogRoutes);
 router.use("/comments", commentRoutes);
 router.use("/users", userRoutes);
 router.use("/dashboards", dashboardRoutes);
