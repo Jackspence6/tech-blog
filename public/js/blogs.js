@@ -35,11 +35,16 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (commentForm) {
 		commentForm.addEventListener("submit", function (event) {
 			event.preventDefault();
-			const formData = new FormData(this);
+			const content = document.getElementById("comment").value.trim();
 
 			fetch("/api/comments", {
 				method: "POST",
-				body: formData,
+				body: JSON.stringify({
+					content,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
 			})
 				.then((response) => {
 					if (response.ok) {
