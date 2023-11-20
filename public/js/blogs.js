@@ -19,23 +19,46 @@ viewBlogButtons.forEach((button) => {
 });
 
 // Function to handle add comment form
-document.querySelector("form").addEventListener("submit", function (event) {
-	event.preventDefault();
-	const formData = new FormData(this);
+document.addEventListener("DOMContentLoaded", function () {
+	var addCommentBtn = document.querySelector(".addCommentBtn");
+	var commentFormContainer = document.getElementById("commentFormContainer");
+	var commentForm = commentFormContainer.querySelector("form");
 
-	fetch("/api/comments", {
-		method: "POST",
-		body: formData,
-	})
-		.then((response) => {
-			if (response.ok) {
-				// Reloading page to show user the new comment
-				location.reload();
+	// Event listener for the add comment button
+	if (addCommentBtn) {
+		addCommentBtn.addEventListener("click", function () {
+			// Toggling visibility of the comment form
+			if (
+				commentFormContainer.style.display === "none" ||
+				commentFormContainer.style.display === ""
+			) {
+				commentFormContainer.style.display = "block";
 			} else {
-				alert("Failed to add comment!");
+				commentFormContainer.style.display = "none";
 			}
-		})
-		.catch((error) => {
-			console.error("Error:", error);
 		});
+	}
+
+	// Code for form submission
+	if (commentForm) {
+		commentForm.addEventListener("submit", function (event) {
+			event.preventDefault();
+			const formData = new FormData(this);
+
+			fetch("/api/comments", {
+				method: "POST",
+				body: formData,
+			})
+				.then((response) => {
+					if (response.ok) {
+						location.reload();
+					} else {
+						alert("Failed to add comment!");
+					}
+				})
+				.catch((error) => {
+					console.error("Error:", error);
+				});
+		});
+	}
 });

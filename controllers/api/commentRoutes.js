@@ -13,6 +13,7 @@ router.post("/", async (req, res) => {
 			content: req.body.content,
 			postId: req.body.blog_id,
 			userId: req.session.user_id,
+			dateCreated: req.body.date_created,
 		});
 
 		res.redirect(`/posts/${req.body.blog_id}`);
