@@ -24,18 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
 	var commentFormContainer = document.getElementById("commentFormContainer");
 	var commentForm = commentFormContainer.querySelector("form");
 
-	// Event listener for the add comment button
-	if (addCommentBtn) {
+	if (addCommentBtn && commentFormContainer) {
 		addCommentBtn.addEventListener("click", function () {
-			// Toggling visibility of the comment form
-			if (
-				commentFormContainer.style.display === "none" ||
-				commentFormContainer.style.display === ""
-			) {
-				commentFormContainer.style.display = "block";
-			} else {
-				commentFormContainer.style.display = "none";
-			}
+			commentFormContainer.style.display =
+				commentFormContainer.style.display === "none" ? "block" : "none";
 		});
 	}
 
