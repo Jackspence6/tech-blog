@@ -148,3 +148,7 @@ body {
 	display: flex;
 	justify-content: center;
 }
+
+#commentFormContainer {
+	display: none;
+}
