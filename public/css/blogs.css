@@ -152,3 +152,8 @@ body {
 #commentFormContainer {
 	display: none;
 }
+
+#submitCommentBtn {
+	border-radius: 10px;
+	background-color: black;
+}

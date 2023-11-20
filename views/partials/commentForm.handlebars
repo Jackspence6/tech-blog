@@ -2,13 +2,13 @@
     <form class="col s12" action="/api/comments" method="POST">
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="comment" name="comment" class="materialize-textarea" required></textarea>
-                <label for="comment">Your Comment:</label>
+                <textarea id="comment" name="comment" placeholder="Your Comment:" class="materialize-textarea" required></textarea>
+                <label for="comment"></label>
             </div>
         </div>
         <div class="row">
             <div class="col s12">
-                <button type="submit" class="btn waves-effect waves-light">Submit Comment</button>
+                <button id="submitCommentBtn" type="submit" class="btn waves-effect waves-light">Submit Comment</button>
             </div>
         </div>
     </form>
