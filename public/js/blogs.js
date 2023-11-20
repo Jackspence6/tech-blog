@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (commentForm) {
 		commentForm.addEventListener("submit", function (event) {
 			event.preventDefault();
-			const content = document.getElementById("comment").value.trim();
+			const content = document.getElementById("content").value.trim();
 
 			fetch("/api/comments", {
 				method: "POST",

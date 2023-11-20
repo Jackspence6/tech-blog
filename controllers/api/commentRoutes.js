@@ -9,11 +9,11 @@ router.post("/", async (req, res) => {
 	}
 
 	try {
-		await Comments.create({
+		const commentData = await Comments.create({
 			...req.body,
 		});
 
-		res.redirect(`/posts/${req.body.blog_id}`);
+		res.status(200).json(commentData);
 	} catch (err) {
 		res.status(500).json(err);
 	}
