@@ -1,7 +1,7 @@
 // Imports & supporting NPM modules
 const router = require("express").Router();
-const { Comments, Users } = require("../../models");
-const { findByPk } = require("../../models/Blogs");
+const { Comments } = require("../../models");
+require("../../models/Blogs");
 
 // Route to add comment to blog post
 router.post("/", async (req, res) => {
