@@ -107,9 +107,17 @@ body {
 
 .button:hover span {
 	padding-right: 25px;
+	position: relative;
 }
 
 .button:hover span:after {
 	opacity: 1;
 	right: 0;
+}
+
+.viewBlogBtn {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
 }
