@@ -19,20 +19,23 @@ viewBlogButtons.forEach((button) => {
 });
 
 // Function to handle add comment form
-function addComment(event) {
+document.querySelector("form").addEventListener("submit", function (event) {
 	event.preventDefault();
+	const formData = new FormData(this);
 
-	var blogId = event.target.getAttribute("data-blog-id");
-
-	if (blogId) {
-		// Redirecting user to the add comment form
-		window.location.href = "/comments/";
-	} else {
-		console.error("An error occurred!");
-	}
-}
-
-// Adding an event listener to each add comment btn
-var addCommentBtn = document.querySelector(".addCommentBtn");
-
-addCommentBtn.addEventListener("click", addComment);
+	fetch("/api/comments", {
+		method: "POST",
+		body: formData,
+	})
+		.then((response) => {
+			if (response.ok) {
+				// Reloading page to show user the new comment
+				location.reload();
+			} else {
+				alert("Failed to add comment!");
+			}
+		})
+		.catch((error) => {
+			console.error("Error:", error);
+		});
+});
