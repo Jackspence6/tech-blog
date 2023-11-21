@@ -25,7 +25,10 @@ router.get("/", async (req, res) => {
 			dashboard.get({ plain: true })
 		);
 
-		res.render("homepage", { dashboard });
+		res.render("homepage", {
+			dashboard,
+			on_dashboard: true,
+		});
 	} catch (err) {
 		res.status(500).json(err);
 	}
