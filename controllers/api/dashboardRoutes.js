@@ -22,6 +22,7 @@ router.get("/", async (req, res) => {
 			dashboard,
 			on_dashboard: true,
 			noBlogs: dashboardData.length === 0,
+			logged_in: req.session.logged_in,
 		});
 	} catch (err) {
 		res.status(500).json(err);
