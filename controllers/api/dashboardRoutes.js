@@ -16,12 +16,11 @@ router.get("/", async (req, res) => {
 			where: { user_id: user_id },
 		});
 
-		if (!dashboardData) {
+		if (!!dashboardData || dashboardData.length === 0) {
 			res.status(400).json({ message: "No Blogs found matching your Id!" });
 			return;
 		}
 
-		// Serializing data so the template can read it
 		const dashboard = dashboardData.map((dashboard) =>
 			dashboard.get({ plain: true })
 		);
