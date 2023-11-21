@@ -65,7 +65,8 @@ document.addEventListener("DOMContentLoaded", function () {
 					commentFormContainer.style.display = "none";
 					// Clearing the comment textarea
 					document.getElementById("content").value = "";
-					alert("Comment added successfully!");
+					// Reloading page to show user new comment
+					location.reload();
 				} else {
 					alert("Failed to add comment!");
 				}
