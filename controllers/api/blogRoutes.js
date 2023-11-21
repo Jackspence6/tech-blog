@@ -8,6 +8,11 @@ router.post("/", async (req, res) => {
 		const { title, content } = req.body;
 		const user_id = req.session.user_id;
 
+		// Authentication Check
+		if (!user_id) {
+			res.status(401).json({ message: "User not authenticated" });
+			return;
+		}
 		const blogData = await Blogs.create({
 			title,
 			content,
