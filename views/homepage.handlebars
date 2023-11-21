@@ -1,3 +1,6 @@
+{{#if noBlogs}}
+<h3>You don't have any blog posts yet!</h3>
+{{else}}
 {{#each blogs as |blog| }}
 <div class="row">
     <div class="col s12">
@@ -31,6 +34,7 @@
     </div>
 </div>
 {{/each}}
+{{/if}}
 {{#if on_dashboard}}
 <div>
     <button id="addBlogPostBtn">Add Blog Post</button>

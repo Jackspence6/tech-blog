@@ -16,18 +16,12 @@ router.get("/", async (req, res) => {
 			where: { user_id: user_id },
 		});
 
-		if (!!dashboardData || dashboardData.length === 0) {
-			res.status(400).json({ message: "No Blogs found matching your Id!" });
-			return;
-		}
-
-		const dashboard = dashboardData.map((dashboard) =>
-			dashboard.get({ plain: true })
-		);
+		const dashboard = dashboardData.map((post) => post.get({ plain: true }));
 
 		res.render("homepage", {
 			dashboard,
 			on_dashboard: true,
+			noBlogs: dashboardData.length === 0,
 		});
 	} catch (err) {
 		res.status(500).json(err);
