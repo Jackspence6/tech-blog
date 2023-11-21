@@ -10,14 +10,19 @@ router.post("/", async (req, res) => {
 	}
 
 	try {
+		const { content, blog_id } = req.body;
+		const user_id = req.session.user_id;
+
+		// Creating a new comment
 		const commentData = await Comments.create({
-			content: Comments.content,
-			user_id: Comments.user.user_id,
-			date_created: Comments.date_created,
+			content,
+			blog_id,
+			user_id,
 		});
 
 		res.status(200).json(commentData);
 	} catch (err) {
+		console.error(err);
 		res.status(500).json(err);
 	}
 });

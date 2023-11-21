@@ -33,29 +33,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Code for form submission
 	if (commentForm) {
-		commentForm.addEventListener("submit", function (event) {
+		commentForm.addEventListener("submit", async function (event) {
 			event.preventDefault();
 			const content = document.getElementById("content").value.trim();
-
-			fetch("/api/comments", {
-				method: "POST",
-				body: JSON.stringify({
-					content,
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			})
-				.then((response) => {
-					if (response.ok) {
-						location.reload();
-					} else {
-						alert("Failed to add comment!");
-					}
-				})
-				.catch((error) => {
-					console.error("Error:", error);
+			try {
+				const response = await fetch(`/api/comments`, {
+					method: "POST",
+					body: JSON.stringify({ content, blog_id, user_id }),
+					headers: {
+						"Content-Type": "application/json",
+					},
 				});
+
+				if (response.ok) {
+					document.location.replace("/blogs");
+				} else {
+					alert("Failed to add comment!");
+				}
+			} catch (error) {
+				console.error("Error:", error);
+				alert("An error occurred while sending the request.");
+			}
 		});
 	}
 });
