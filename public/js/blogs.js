@@ -78,3 +78,39 @@ document.addEventListener("DOMContentLoaded", function () {
 		isCommentFormListenerAttached = true;
 	}
 });
+
+// Function to create a new blog post
+async function addBlogPost(event) {
+	event.preventDefault();
+	const title = document.getElementById("blogTitle").value.trim();
+	const content = document.getElementById("blogContent").value.trim();
+
+	if (!title || !content) {
+		console.error("Please fill in all the form fields!");
+		return;
+	}
+
+	try {
+		const response = await fetch("/api/blogs", {
+			method: "POST",
+			body: JSON.stringify({ title, content }),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+
+		if (response.ok) {
+			// Clearing the form fields
+			document.getElementById("blogTitle").value = "";
+			document.getElementById("blogContent").value = "";
+
+			// Redirecting user to their dashboard
+			window.location.href = "/api/dashboard";
+		} else {
+			alert("Failed to create new blog post!");
+		}
+	} catch (error) {
+		console.error("Error:", error);
+		alert("An error occurred while sending the request.");
+	}
+}
