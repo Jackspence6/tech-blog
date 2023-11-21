@@ -1,12 +1,10 @@
 // Function to get blog by ID with associated Info
 function openBlog(event) {
 	event.preventDefault();
-
 	var blogId = event.target.getAttribute("data-blog-id");
 
 	if (blogId) {
-		// Redirecting user to the blog post using the ID
-		window.location.href = "/blogs/" + blogId;
+		window.location.href = "/blogs/" + blogId + "?blogId=" + blogId;
 	} else {
 		console.error("Blog ID not found!");
 	}
@@ -24,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	var commentFormContainer = document.getElementById("commentFormContainer");
 	var commentForm = commentFormContainer.querySelector("form");
 
+	// Toggle comment form display
 	if (addCommentBtn && commentFormContainer) {
 		addCommentBtn.addEventListener("click", function () {
 			commentFormContainer.style.display =
@@ -31,16 +30,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	}
 
-	// Code for form submission
+	// Extracting blogId from the URL
+	function getBlogIdFromUrl() {
+		const urlParams = new URLSearchParams(window.location.search);
+		return urlParams.get("blogId");
+	}
+
+	// Comment form submission
 	if (commentForm) {
 		commentForm.addEventListener("submit", async function (event) {
 			event.preventDefault();
 			const content = document.getElementById("content").value.trim();
-
-			const addCommentBtn = commentForm
-				.closest(".blog-content")
-				.querySelector(".addCommentBtn");
-			const blog_id = addCommentBtn.getAttribute("data-blog-id");
+			const blog_id = getBlogIdFromUrl();
 
 			if (!blog_id) {
 				console.error("Blog ID not found!");
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			}
 
 			try {
-				const response = await fetch(`/api/comments`, {
+				const response = await fetch("/api/comments", {
 					method: "POST",
 					body: JSON.stringify({ content, blog_id }),
 					headers: {
@@ -57,7 +58,11 @@ document.addEventListener("DOMContentLoaded", function () {
 				});
 
 				if (response.ok) {
-					document.location.replace("/blogs");
+					// Hiding the comment form on submission
+					commentFormContainer.style.display = "none";
+					// Clearing the comment textarea
+					document.getElementById("content").value = "";
+					alert("Comment added successfully!");
 				} else {
 					alert("Failed to add comment!");
 				}

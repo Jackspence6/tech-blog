@@ -20,7 +20,6 @@ Comments.init(
 		blog_id: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
-			unique: true,
 			references: {
 				model: "blogs",
 				key: "id",
@@ -36,12 +35,12 @@ Comments.init(
 		},
 		date_created: {
 			type: DataTypes.DATE,
-			allowNull: false,
+			allowNull: true,
 			defaultValue: DataTypes.NOW,
 		},
 		date_updated: {
 			type: DataTypes.DATE,
-			allowNull: false,
+			allowNull: true,
 			defaultValue: DataTypes.NOW,
 		},
 	},
