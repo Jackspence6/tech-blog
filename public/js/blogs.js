@@ -36,10 +36,21 @@ document.addEventListener("DOMContentLoaded", function () {
 		commentForm.addEventListener("submit", async function (event) {
 			event.preventDefault();
 			const content = document.getElementById("content").value.trim();
+
+			const addCommentBtn = commentForm
+				.closest(".blog-content")
+				.querySelector(".addCommentBtn");
+			const blog_id = addCommentBtn.getAttribute("data-blog-id");
+
+			if (!blog_id) {
+				console.error("Blog ID not found!");
+				return;
+			}
+
 			try {
 				const response = await fetch(`/api/comments`, {
 					method: "POST",
-					body: JSON.stringify({ content, blog_id, user_id }),
+					body: JSON.stringify({ content, blog_id }),
 					headers: {
 						"Content-Type": "application/json",
 					},
