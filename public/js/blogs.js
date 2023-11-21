@@ -16,6 +16,9 @@ viewBlogButtons.forEach((button) => {
 	button.addEventListener("click", openBlog);
 });
 
+// Flag to ensure event listener for form submission is only attached once
+let isCommentFormListenerAttached = false;
+
 // Function to handle add comment form
 document.addEventListener("DOMContentLoaded", function () {
 	var addCommentBtn = document.querySelector(".addCommentBtn");
@@ -37,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 
 	// Comment form submission
-	if (commentForm) {
+	if (commentForm && !isCommentFormListenerAttached) {
 		commentForm.addEventListener("submit", async function (event) {
 			event.preventDefault();
 			const content = document.getElementById("content").value.trim();
@@ -71,5 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
 				alert("An error occurred while sending the request.");
 			}
 		});
+		isCommentFormListenerAttached = true;
 	}
 });
