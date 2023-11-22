@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
 
 		// Authentication Check
 		if (!user_id) {
-			res.status(401).json({ message: "User not authenticated" });
+			res.status(401).json({ message: "User not authenticated!" });
 			return;
 		}
 		const blogData = await Blogs.create({

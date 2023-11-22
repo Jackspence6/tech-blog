@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				}
 			} catch (error) {
 				console.error("Error:", error);
-				alert("An error occurred while sending the request.");
+				alert("An error occurred while sending the request!");
 			}
 		});
 		isCommentFormListenerAttached = true;
@@ -109,7 +109,7 @@ async function addBlogPost(event) {
 		}
 	} catch (error) {
 		console.error("Error:", error);
-		alert("An error occurred while sending the request.");
+		alert("An error occurred while sending the request!");
 	}
 }
 
