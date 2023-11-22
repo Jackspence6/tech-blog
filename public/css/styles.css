@@ -143,4 +143,14 @@ body {
 
 #blogFormContainer {
 	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+form#blogForm.col.s12 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }

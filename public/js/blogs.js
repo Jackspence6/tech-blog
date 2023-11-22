@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	if (addBlogBtn && blogFormContainer) {
 		addBlogBtn.addEventListener("click", function () {
 			blogFormContainer.style.display =
-				blogFormContainer.style.display === "none" ? "block" : "none";
+				blogFormContainer.style.display === "none" ? "flex" : "none";
 		});
 	}
 
