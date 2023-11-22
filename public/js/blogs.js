@@ -23,7 +23,7 @@ let isCommentFormListenerAttached = false;
 document.addEventListener("DOMContentLoaded", function () {
 	var addCommentBtn = document.querySelector(".addCommentBtn");
 	var commentFormContainer = document.getElementById("commentFormContainer");
-	var commentForm = commentFormContainer.querySelector("form");
+	var commentForm = document.getElementById("commentForm");
 
 	// Toggle comment form display
 	if (addCommentBtn && commentFormContainer) {
@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Function to create a new blog post
 async function addBlogPost(event) {
 	event.preventDefault();
+
 	const title = document.getElementById("blogTitle").value.trim();
 	const content = document.getElementById("blogContent").value.trim();
 
@@ -100,11 +101,8 @@ async function addBlogPost(event) {
 		});
 
 		if (response.ok) {
-			// Clearing the form fields
 			document.getElementById("blogTitle").value = "";
 			document.getElementById("blogContent").value = "";
-
-			// Redirecting user to their dashboard
 			window.location.href = "/api/dashboard";
 		} else {
 			alert("Failed to create new blog post!");
@@ -114,3 +112,23 @@ async function addBlogPost(event) {
 		alert("An error occurred while sending the request.");
 	}
 }
+
+// Add event listener for the add blog post button
+document.addEventListener("DOMContentLoaded", function () {
+	// Activate Blog Post Form Button
+	var addBlogBtn = document.querySelector("#addBlogPostBtn");
+	var blogFormContainer = document.getElementById("blogFormContainer");
+
+	if (addBlogBtn && blogFormContainer) {
+		addBlogBtn.addEventListener("click", function () {
+			blogFormContainer.style.display =
+				blogFormContainer.style.display === "none" ? "block" : "none";
+		});
+	}
+
+	// Blog Post Form Submission Handler
+	var blogForm = document.getElementById("blogForm");
+	if (blogForm) {
+		blogForm.addEventListener("submit", addBlogPost);
+	}
+});

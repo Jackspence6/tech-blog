@@ -13,6 +13,7 @@ h3 {
 body {
 	background-color: black;
 }
+
 .navText {
 	font-family: "Courier New", Courier, monospace;
 	font-weight: 600;
@@ -138,4 +139,8 @@ body {
 	padding: 1rem;
 	margin-bottom: 2rem;
 	cursor: pointer;
+}
+
+#blogFormContainer {
+	display: none;
 }
