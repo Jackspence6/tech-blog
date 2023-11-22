@@ -1,0 +1,49 @@
+{{#if noBlogs}}
+<h3>You don't have any blog posts yet!</h3>
+{{else}}
+{{#each blogs as |blog| }}
+<div class="row">
+    <div class="col s12">
+        <div class="col s12 m7">
+            <div class="card horizontal blog-content">
+                <div class="card-stacked">
+                    <span class="card-title">{{blog.title}}</span>
+                    <div class="card-content">
+                        <p>
+                            {{blog.content}}
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <div class="content-details">
+                            <p>Posted By:</p>
+                            <span>{{blog.user.username}}</span>
+                        </div>
+                        <div class="content-details">
+                            <p>Date Posted:</p>
+                            <span>{{format_date blog.date_created}}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="button viewBlogBtn" data-blog-id="{{blog.id}}" style="vertical-align: middle;">
+                            View Blog Post<span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+<div>
+    <button id="addBlogPostBtn">Add Blog Post</button>
+</div>
+<div id="newBlogFormContainer">
+    {{> blogPostForm }}
+</div>
+{{/if}}
+
+{{#if logged_in}}
+<script src="/js/logout.js"></script>
+{{/if}}
+
+<script src="/js/blogs.js"></script>
