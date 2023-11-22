@@ -1,5 +1,11 @@
 {{#if noBlogs}}
 <h3>You don't have any blog posts yet!</h3>
+<div>
+    <button id="addBlogPostBtn">Add Blog Post</button>
+</div>
+<div id="newBlogFormContainer">
+    {{> blogPostForm }}
+</div>
 {{else}}
 {{#each blogs as |blog| }}
 <div class="row">
