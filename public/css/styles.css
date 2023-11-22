@@ -154,3 +154,26 @@ form#blogForm.col.s12 {
 	justify-content: center;
 	align-items: center;
 }
+
+#newBlogFormContainer {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#blogTitle {
+	width: 50rem;
+}
+
+#blogContent {
+	width: 50rem;
+}
+
+#submitBlogPostBtn {
+	background-color: black;
+	color: white;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bold;
+	border-radius: 5px;
+	cursor: pointer;
+}
