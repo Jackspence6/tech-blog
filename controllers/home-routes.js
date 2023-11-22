@@ -79,5 +79,19 @@ router.get("/login", async (req, res) => {
 	}
 });
 
+// Route to logout user if logged in
+router.get("/logout", async (req, res) => {
+	try {
+		if (req.session.logged_in) {
+			req.session.destroy(() => {
+				res.status(204).end();
+			});
+		}
+		res.render("homepage");
+	} catch (err) {
+		res.status(400).json(err);
+	}
+});
+
 // Exports
 module.exports = router;
