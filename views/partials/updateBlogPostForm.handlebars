@@ -1,22 +1,23 @@
-<div id="blogFormContainer">
-    <form id="blogForm" class="col s12">
+<div id="updateBlogFormContainer-{{blog.id}}" class="updateBlogFormContainer" style="display: none;">
+    <form id="updateBlogForm" class="col s12">
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="blogTitle" name="title" placeholder="Updated Blog Post Title:"
+                <textarea id="updateBlogTitle" name="title" placeholder="Updated Blog Post Title:"
                     class="materialize-textarea" required></textarea>
                 <label for="title"></label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="blogContent" name="content" placeholder="Updated Blog Post Content:"
+                <textarea id="updateBlogContent" name="content" placeholder="Updated Blog Post Content:"
                     class="materialize-textarea" required></textarea>
                 <label for="content"></label>
             </div>
         </div>
         <div class="row">
             <div class="col s12">
-                <button id="submitBlogPostBtn" type="submit" class="btn waves-effect waves-light">Submit Blog
+                <button id="submitBlogPostBtn" data-blog-id="{{blogs.id}}" type="submit"
+                    class="btn waves-effect waves-light">Update Blog
                     Post</button>
             </div>
         </div>

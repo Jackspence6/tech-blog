@@ -34,6 +34,9 @@
                         <button class="button updateBlogBtn" data-blog-id="{{blog.id}}">Update Blog Post</button>
                         <button class="button deleteBlogBtn" data-blog-id="{{blog.id}}">Delete Blog Post</button>
                     </div>
+                    <div>
+                        {{> updateBlogPostForm blog=blog}}
+                    </div>
                 </div>
             </div>
         </div>

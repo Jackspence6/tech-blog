@@ -137,11 +137,11 @@ document.addEventListener("DOMContentLoaded", function () {
 async function updateBlogPost(event) {
 	event.preventDefault();
 
-	const blogId = event.target.getAttribute("data-blog-id");
-	const title = document.getElementById("blogTitle").value.trim();
-	const content = document.getElementById("blogContent").value.trim();
+	const blogId = this.getAttribute("data-blog-id");
+	const title = document.getElementById("updateBlogTitle").value.trim();
+	const content = document.getElementById("updateBlogContent").value.trim();
 
-	if ((!blogId && !title) || !content) {
+	if (!title && !content) {
 		console.error("Please fill in at least one of the form fields!");
 		return;
 	}
@@ -156,8 +156,8 @@ async function updateBlogPost(event) {
 		});
 
 		if (response.ok) {
-			document.getElementById("blogTitle").value = "";
-			document.getElementById("blogContent").value = "";
+			document.getElementById("updateBlogTitle").value = "";
+			document.getElementById("updateBlogContent").value = "";
 			window.location.href = "/";
 		} else {
 			alert("Failed to update blog post!");
@@ -168,27 +168,27 @@ async function updateBlogPost(event) {
 	}
 }
 
-// Add event listener for the update blog post button
+// Adding event listener for each update blog post button
 document.addEventListener("DOMContentLoaded", function () {
-	// Activate Blog update Form Button
 	var updateButtons = document.querySelectorAll(".updateBlogBtn");
-	var blogFormContainer = document.getElementById("blogFormContainer");
 
 	updateButtons.forEach((button) => {
 		button.addEventListener("click", function () {
 			const blogId = this.getAttribute("data-blog-id");
-			// Fetching current blog data and populating form fields
-			document
-				.getElementById("submitBlogPostBtn")
-				.setAttribute("data-blog-id", blogId);
-			blogFormContainer.style.display = "flex";
 
-			// Changing form submission handler to Update Blog Post
-			var blogForm = document.getElementById("blogForm");
-			if (blogForm) {
-				// Removing existing event listeners to prevent duplicate handlers
-				blogForm.removeEventListener("submit", addBlogPost);
-				blogForm.addEventListener("submit", updateBlogPost);
+			// Hiding all update forms
+			document.querySelectorAll(".updateBlogFormContainer").forEach((form) => {
+				form.style.display = "none";
+			});
+
+			// Finding & displaying update form for the selected blog post
+			var updateFormContainer = document.getElementById(
+				`updateBlogFormContainer-${blogId}`
+			);
+			if (updateFormContainer) {
+				updateFormContainer.style.display = "flex";
+			} else {
+				console.error(`Update form for blog ID ${blogId} not found!`);
 			}
 		});
 	});
