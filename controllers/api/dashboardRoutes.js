@@ -8,20 +8,21 @@ router.get("/", async (req, res) => {
 		const user_id = req.session.user_id;
 
 		if (!user_id) {
-			res.status(401).json({ message: "User not authenticated" });
+			res.redirect("/login");
 			return;
 		}
 
 		const dashboardData = await Blogs.findAll({
 			where: { user_id: user_id },
+			include: [{ model: Users }],
 		});
 
 		const dashboard = dashboardData.map((post) => post.get({ plain: true }));
 
-		res.render("homepage", {
-			dashboard,
+		res.render("dashboard", {
+			blogs: dashboard,
 			on_dashboard: true,
-			noBlogs: dashboardData.length === 0,
+			noBlogs: dashboard.length === 0,
 			logged_in: req.session.logged_in,
 		});
 	} catch (err) {
