@@ -103,7 +103,7 @@ async function addBlogPost(event) {
 		if (response.ok) {
 			document.getElementById("blogTitle").value = "";
 			document.getElementById("blogContent").value = "";
-			window.location.href = "/api/dashboard";
+			window.location.href = "/";
 		} else {
 			alert("Failed to create new blog post!");
 		}
