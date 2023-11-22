@@ -113,7 +113,7 @@ async function addBlogPost(event) {
 	}
 }
 
-// Add event listener for the add blog post button
+// Adding event listener for the add blog post button
 document.addEventListener("DOMContentLoaded", function () {
 	// Activate Blog Post Form Button
 	var addBlogBtn = document.querySelector("#addBlogPostBtn");
@@ -168,7 +168,7 @@ async function updateBlogPost(event) {
 	}
 }
 
-// Adding event listener for each update blog post button
+// Adding event listener to each update blog post button
 document.addEventListener("DOMContentLoaded", function () {
 	var updateButtons = document.querySelectorAll(".updateBlogBtn");
 
