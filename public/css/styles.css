@@ -126,6 +126,23 @@ body {
 	font-weight: bold;
 	display: flex;
 	justify-content: center;
+	margin: 4px;
+}
+
+.updateBlogBtn {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	margin: 4px;
+}
+
+.deleteBlogBtn {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	margin: 4px;
 }
 
 #addBlogPostBtn {

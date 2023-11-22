@@ -132,3 +132,64 @@ document.addEventListener("DOMContentLoaded", function () {
 		blogForm.addEventListener("submit", addBlogPost);
 	}
 });
+
+// Function to update an existing blog post
+async function updateBlogPost(event) {
+	event.preventDefault();
+
+	const blogId = event.target.getAttribute("data-blog-id");
+	const title = document.getElementById("blogTitle").value.trim();
+	const content = document.getElementById("blogContent").value.trim();
+
+	if ((!blogId && !title) || !content) {
+		console.error("Please fill in at least one of the form fields!");
+		return;
+	}
+
+	try {
+		const response = await fetch(`/api/blogs/${blogId}`, {
+			method: "PUT",
+			body: JSON.stringify({ title, content }),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+
+		if (response.ok) {
+			document.getElementById("blogTitle").value = "";
+			document.getElementById("blogContent").value = "";
+			window.location.href = "/";
+		} else {
+			alert("Failed to update blog post!");
+		}
+	} catch (error) {
+		console.error("Error:", error);
+		alert("An error occurred while sending the request!");
+	}
+}
+
+// Add event listener for the update blog post button
+document.addEventListener("DOMContentLoaded", function () {
+	// Activate Blog update Form Button
+	var updateButtons = document.querySelectorAll(".updateBlogBtn");
+	var blogFormContainer = document.getElementById("blogFormContainer");
+
+	updateButtons.forEach((button) => {
+		button.addEventListener("click", function () {
+			const blogId = this.getAttribute("data-blog-id");
+			// Fetching current blog data and populating form fields
+			document
+				.getElementById("submitBlogPostBtn")
+				.setAttribute("data-blog-id", blogId);
+			blogFormContainer.style.display = "flex";
+
+			// Changing form submission handler to Update Blog Post
+			var blogForm = document.getElementById("blogForm");
+			if (blogForm) {
+				// Removing existing event listeners to prevent duplicate handlers
+				blogForm.removeEventListener("submit", addBlogPost);
+				blogForm.addEventListener("submit", updateBlogPost);
+			}
+		});
+	});
+});
