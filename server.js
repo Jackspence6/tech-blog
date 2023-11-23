@@ -16,7 +16,10 @@ const PORT = process.env.PORT || 3001;
 // Session configuration
 const sess = {
 	secret: process.env.SESS_SECRET,
-	cookie: {},
+	cookie: {
+		// 1 Day
+		maxAge: 86400,
+	},
 	resave: false,
 	saveUninitialized: true,
 	store: new SequelizeStore({
@@ -24,7 +27,7 @@ const sess = {
 	}),
 };
 
-// Setting up Handlebars engine with helpers 
+// Setting up Handlebars engine with helpers
 const hbs = exphbs.create({ helpers });
 
 // Middleware
