@@ -222,3 +222,22 @@ async function deleteBlogPost(blogId) {
 		alert("An error occurred while sending the request!");
 	}
 }
+
+// Function to attach event listeners to delete blog post buttons
+function attachDeleteEventListeners() {
+	var deleteButtons = document.querySelectorAll(".deleteBlogBtn");
+
+	deleteButtons.forEach((button) => {
+		button.addEventListener("click", function () {
+			const blogId = this.getAttribute("data-blog-id");
+			if (confirm("Are you sure you want to delete this blog post?")) {
+				deleteBlogPost(blogId);
+			}
+		});
+	});
+}
+
+// Attaching event listener when the DOM content is loaded
+document.addEventListener("DOMContentLoaded", function () {
+	attachDeleteEventListeners();
+});
