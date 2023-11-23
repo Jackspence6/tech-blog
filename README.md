@@ -67,27 +67,25 @@ The application will be running on `localhost:3001`.
 
 ### User Authentication and Management Routes
 
+- `POST /api/users` - Register a new user.
 - `POST /api/users/login` - Authenticate and log in a user.
-- `POST /api/users/signup` - Register a new user.
 - `POST /api/users/logout` - Log out a user.
-- `GET /api/users/profile` - Get the logged-in user's profile (requires authentication).
 
 ### Blog Post Management Routes
 
-- `GET /api/posts` - Retrieve all blog posts.
-- `GET /api/posts/:id` - Retrieve a specific blog post.
-- `POST /api/posts` - Create a new blog post (requires authentication).
-- `PUT /api/posts/:id` - Update an existing blog post (requires authentication).
-- `DELETE /api/posts/:id` - Delete a blog post (requires authentication).
+- `GET /api/blogs` - Retrieve all blog posts.
+- `GET /api/blogs/:id` - Retrieve a specific blog post.
+- `POST /api/blogs` - Create a new blog post (requires authentication).
+- `PUT /api/blogs/:id` - Update an existing blog post (requires authentication).
+- `DELETE /api/blogs/:id` - Delete a blog post (requires authentication).
 
 ### Comment Routes
 
 - `POST /api/comments` - Add a comment to a blog post (requires authentication).
-- `DELETE /api/comments/:id` - Delete a comment (requires authentication).
 
 ### Dashboard Routes
 
-- `GET /api/dashboard` - Get the user's dashboard data, including their posts (requires authentication).
+- `GET /api/dashboards` - Get the user's dashboard data(Their Blog Posts) (requires authentication).
 
 ### Error and Miscellaneous Routes
 
