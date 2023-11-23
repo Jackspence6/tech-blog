@@ -134,10 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Function to update an existing blog post
-async function updateBlogPost(event) {
-	event.preventDefault();
-
-	const blogId = this.getAttribute("data-blog-id");
+async function updateBlogPost(blogId) {
 	const title = document.getElementById("updateBlogTitle").value.trim();
 	const content = document.getElementById("updateBlogContent").value.trim();
 
@@ -187,6 +184,16 @@ document.addEventListener("DOMContentLoaded", function () {
 			);
 			if (updateFormContainer) {
 				updateFormContainer.style.display = "flex";
+
+				// Blog Update Form Submission Handler
+				var updateBlogForm = document.getElementById("updateBlogForm");
+				if (updateBlogForm) {
+					updateBlogForm.addEventListener("submit", function (event) {
+						event.preventDefault();
+						// Checking if blogId is correctly retrieved here
+						updateBlogPost(blogId);
+					});
+				}
 			} else {
 				console.error(`Update form for blog ID ${blogId} not found!`);
 			}
