@@ -200,3 +200,25 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 });
+
+// Function to Delete an existing blog post
+async function deleteBlogPost(blogId) {
+	try {
+		const response = await fetch(`/api/blogs/${blogId}`, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+
+		if (response.ok) {
+			// If successful, redirecting user to homepage
+			document.location.replace("/");
+		} else {
+			alert("Failed to delete blog post!");
+		}
+	} catch (error) {
+		console.error("Error:", error);
+		alert("An error occurred while sending the request!");
+	}
+}
